@@ -1,0 +1,11 @@
+type: object
+properties:
+  status:
+    type: string
+    enum: [ok]
+  action:
+    type: string
+    description: The action performed (sit, paw, heel)
+  detail:
+    type: string
+required: [status, action]

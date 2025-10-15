@@ -1,0 +1,18 @@
+post:
+  summary: Ask Clarence to heel
+  description: >
+    Commands Clarence to walk obediently beside you.  
+    Returns confirmation if successful,  
+    or a 400 error if Clarence refuses because he’s asleep or distracted.
+  operationId: postHeel
+  tags:
+    - Clarence Actions
+  requestBody:
+    $ref: ../../components/requestBodies/EmptyBody.yaml
+  responses:
+    '200':
+      $ref: ../../components/responses/OkAction.yaml
+    '400':
+      $ref: ../../components/responses/ClarenceAsleep.yaml
+  security:
+    - bearerAuth: []

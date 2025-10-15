@@ -1,0 +1,11 @@
+description: Successful action
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ActionResult.yaml
+    examples:
+      example:
+        value:
+          status: ok
+          action: "paw"
+          detail: "Clarence offers his left paw."

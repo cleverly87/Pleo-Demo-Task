@@ -1,0 +1,17 @@
+get:
+  summary: Ask Clarence to offer his paw
+  description: >
+    Requests Clarence to offer a paw.  
+    Choose which side (left or right) using the **side** query parameter.
+  operationId: getPaw
+  tags:
+    - Clarence Actions
+  parameters:
+    - $ref: ../../components/parameters/PawSide.yaml
+  responses:
+    '200':
+      $ref: ../../components/responses/OkAction.yaml
+    '400':
+      $ref: ../../components/responses/ClarenceAsleep.yaml
+  security:
+    - bearerAuth: []

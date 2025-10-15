@@ -1,0 +1,10 @@
+description: Clarence is asleep
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Error.yaml
+    examples:
+      asleep:
+        value:
+          type: clarence_asleep
+          message: "Clarence is asleep. Try again in a few minutes or check his nap schedule."

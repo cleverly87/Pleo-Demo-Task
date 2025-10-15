@@ -1,0 +1,9 @@
+type: object
+properties:
+  type:
+    type: string
+    example: clarence_asleep
+  message:
+    type: string
+    example: Clarence is asleep. Try again in a few minutes or check his nap schedule.
+required: [type, message]

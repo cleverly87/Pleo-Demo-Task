@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: Clarence Services API
+  version: 'v3'
+  description: >
+    Playful, approachable API to interact with Clarence the Dog.
+servers:
+  - url: https://external.pleo.io/v3
+
+paths:
+  /clarence/sit:
+    $ref: ./paths/clarence/sit.post.yaml
+  /clarence/paw:
+    $ref: ./paths/clarence/get_paw.yaml
+  /clarence/heel:
+    $ref: ./paths/clarence/heel.post.yaml
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    ActionResult:
+      $ref: ./components/schemas/ActionResult.yaml
+    Error:
+      $ref: ./components/schemas/Error.yaml
+  parameters:
+    PawSide:
+      $ref: ./components/parameters/PawSide.yaml
+  requestBodies:
+    EmptyBody:
+      $ref: ./components/requestBodies/EmptyBody.yaml
+  responses:
+    OkAction:
+      $ref: ./components/responses/OkAction.yaml
+    ClarenceAsleep:
+      $ref: ./components/responses/ClarenceAsleep.yaml
+
+
+security:
+  - bearerAuth: []
