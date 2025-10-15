@@ -1,43 +1,216 @@
 openapi: 3.1.0
 info:
   title: Clarence Services API
-  version: 'v3'
-  description: >
-    Playful, approachable API to interact with Clarence the Dog.
+  version: v3
+  description: |
+    Interact with Clarence the Dog via simple HTTP calls.
+    Endpoints let you ask Clarence to **sit**, offer a **paw**, or **heel**.
+
 servers:
   - url: https://external.pleo.io/v3
+    description: Production
+
+tags:
+  - name: Clarence Actions
+    description: Commands you can give to Clarence
+
+# Require OAuth 2.0 with the clarence.actions scope by default
+security:
+  - OAuth2:
+      - clarence.actions
 
 paths:
   /clarence/sit:
-    $ref: ./paths/clarence/sit.post.yaml
+    post:
+      tags: [Clarence Actions]
+      summary: Ask Clarence to sit
+      description: Returns confirmation if Clarence sits successfully.
+      operationId: postSit
+      responses:
+        '200':
+          description: Successful action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+              examples:
+                success:
+                  value:
+                    status: ok
+                    action: sit
+                    detail: Clarence sits politely. Good boy!
+        '400':
+          description: Clarence is asleep
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                asleep:
+                  value:
+                    type: clarence_asleep
+                    message: Clarence is asleep. Try again in a few minutes or check his nap schedule.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
   /clarence/paw:
-    $ref: ./paths/clarence/get_paw.yaml
+    get:
+      tags: [Clarence Actions]
+      summary: Ask Clarence to offer his paw
+      description: Choose which paw using the **side** query parameter.
+      operationId: getPaw
+      parameters:
+        - $ref: '#/components/parameters/PawSide'
+      responses:
+        '200':
+          description: Successful action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+              examples:
+                left:
+                  value:
+                    status: ok
+                    action: paw
+                    detail: Clarence offers his left paw.
+                right:
+                  value:
+                    status: ok
+                    action: paw
+                    detail: Clarence offers his right paw.
+        '400':
+          description: Clarence is asleep
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                asleep:
+                  value:
+                    type: clarence_asleep
+                    message: Clarence is asleep. Try again in a few minutes or check his nap schedule.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
   /clarence/heel:
-    $ref: ./paths/clarence/heel.post.yaml
+    post:
+      tags: [Clarence Actions]
+      summary: Ask Clarence to heel
+      description: Commands Clarence to walk obediently beside you.
+      operationId: postHeel
+      responses:
+        '200':
+          description: Successful action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+              examples:
+                success:
+                  value:
+                    status: ok
+                    action: heel
+                    detail: Clarence heels at your side.
+        '400':
+          description: Clarence is asleep
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                asleep:
+                  value:
+                    type: clarence_asleep
+                    message: Clarence is asleep. Try again in a few minutes or check his nap schedule.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
 
 components:
   securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-  schemas:
-    ActionResult:
-      $ref: ./components/schemas/ActionResult.yaml
-    Error:
-      $ref: ./components/schemas/Error.yaml
+    OAuth2:
+      type: oauth2
+      description: >
+        OAuth 2.0. Use Authorization Code for user-consent flows, or Client Credentials for server-to-server.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.example.com/authorize
+          tokenUrl: https://auth.example.com/token
+          scopes:
+            clarence.actions: Perform Clarence actions (sit, paw, heel)
+        clientCredentials:
+          tokenUrl: https://auth.example.com/token
+          scopes:
+            clarence.actions: Perform Clarence actions (sit, paw, heel)
+
   parameters:
     PawSide:
-      $ref: ./components/parameters/PawSide.yaml
-  requestBodies:
-    EmptyBody:
-      $ref: ./components/requestBodies/EmptyBody.yaml
+      name: side
+      in: query
+      required: true
+      description: Which paw Clarence should offer.
+      schema:
+        type: string
+        enum: [left, right]
+      examples:
+        left:
+          value: left
+        right:
+          value: right
+
   responses:
-    OkAction:
-      $ref: ./components/responses/OkAction.yaml
-    ClarenceAsleep:
-      $ref: ./components/responses/ClarenceAsleep.yaml
+    Unauthorized:
+      description: Missing, invalid, or expired access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                type: unauthorized
+                message: Missing or expired access token. Acquire or refresh your token and retry.
+    Forbidden:
+      description: The token does not include the required scope.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            forbidden:
+              value:
+                type: forbidden
+                message: The token lacks the required scope (clarence.actions).
 
+  schemas:
+    ActionResult:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        action:
+          type: string
+          description: The action performed (sit, paw, heel).
+        detail:
+          type: string
+          description: Human-readable confirmation of the action.
+      required: [status, action]
 
-security:
-  - bearerAuth: []
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Machine-readable error code.
+          examples: [clarence_asleep, unauthorized, forbidden]
+        message:
+          type: string
+          description: Plain-English explanation and how to fix.
+      required: [type, message]

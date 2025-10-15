@@ -2,9 +2,9 @@
 
 Meet Clarence, Pleos most popular colleague. This API lets you ask Clarence to **sit**, offer a **paw**, or **heel** with simple HTTP calls.
 
-**Base URL:** `https://external.pleo.io/v3`
-**Version:** `v3`
-**Auth:** OAuth 2.0 → Bearer token (see **Help**)
+**Base URL:** `https://external.pleo.io/v3`\
+**Version:** `v3`\
+**Auth:** OAuth 2.0 → Bearer token (see **Authentication**)\
 **Endpoints:** `/clarence/sit` (POST), `/clarence/paw` (GET), `/clarence/heel` (POST)
 
 ## What you will find here
