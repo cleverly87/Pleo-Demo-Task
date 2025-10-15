@@ -3,7 +3,7 @@
 
 This page is your guided setup: authenticate, call an endpoint, and handle errors confidently.
 
-## 1) The flow at a glance
+## The flow at a glance
 
 ```mermaid
 flowchart TD
