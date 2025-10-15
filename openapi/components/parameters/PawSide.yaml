@@ -1,7 +1,0 @@
-name: side
-in: query
-required: true
-schema:
-  type: string
-  enum: [left, right]
-description: Which paw to offer.
