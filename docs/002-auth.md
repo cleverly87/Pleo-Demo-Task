@@ -1,6 +1,6 @@
 # Authentication (OAuth 2.0)
 
-Clarence’s API uses **OAuth 2.0**. You’ll call endpoints with an **access token** in the `Authorization` header.
+Clarence’s API uses **OAuth 2.0**. You’ll call endpoints with an **access token** in the `Authorisation` header.
 
 Tokens from Pleo are **opaque** (do not decode).  
 
@@ -9,7 +9,7 @@ Tokens from Pleo are **opaque** (do not decode).
 
 ---
 
-## Quick setup (Authorization Code flow)
+## Quick setup (Authorisation Code flow)
 
 Follow these steps to obtain your first access token and call an endpoint.
 
@@ -27,10 +27,10 @@ Before starting the OAuth flow, make sure you’ve completed the following setup
    > These credentials identify your app when requesting tokens.
 
 2. **Confirm redirect URI**  
-   Ensure your `redirect_uri` exactly matches what you’ll use during the authorisation flow  
-   (including protocol and path, e.g., `https://yourapp.com/callback`).
+  -  Ensure your `redirect_uri` exactly matches what you’ll use during the authorisation flow (including protocol and path, e.g., `https://yourapp.com/callback`).
 
 3. **Know your required scope**  
+
    All Clarence endpoints require the scope:  
    
    ```text
@@ -43,13 +43,13 @@ Once these steps are complete, you’re ready to begin the OAuth flow.
 
 ---
 
-## Authorization Code flow
+## Authorisation Code flow
 
 ### 1) Redirect the user to authorise
 Send your user to Pleo’s authorisation page:
 
 ```http
-GET https://auth.pleo.io/oauth/authorize?response_type=code\
+GET https://auth.pleo.io/oauth/authorise?response_type=code\
 &client_id=YOUR_CLIENT_ID\
 &redirect_uri=https://yourapp.com/callback\
 &scope=clarence.actions\
@@ -77,7 +77,7 @@ Swap the code for an access token (and refresh token):
 ```bash
 curl -X POST "https://auth.pleo.io/oauth/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "grant_type=authorization_code" \
+  -d "grant_type=authorisation_code" \
   -d "code=<AUTH_CODE>" \
   -d "redirect_uri=https://yourapp.com/callback" \
   -d "client_id=<CLIENT_ID>" \
@@ -100,12 +100,12 @@ curl -X POST "https://auth.pleo.io/oauth/token" \
 
 ### Using your tokens
 
-Once the `access_token` has been issued, include it in the `Authorization` header for every request to the Clarence API:
+Once the `access_token` has been issued, include it in the `Authorisation` header for every request to the Clarence API:
 
 ```http
-Authorization: Bearer <ACCESS_TOKEN>
+Authorisation: Bearer <ACCESS_TOKEN>
 ```
-Access tokens expire after the duration specified in the expires_in field (typically 3600 seconds).
+- Access tokens expire after the duration specified in the **expires_in** field (typically 3600 seconds).
 
 When this happens, use your **refresh_token** to request a new access token by sending a** refresh_token** grant.
 

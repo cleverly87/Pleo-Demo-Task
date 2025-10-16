@@ -96,7 +96,7 @@ Download the complete OpenAPI schema and import it into your tool of choice.
 
 Once imported, you can:
 - Inspect all endpoints, parameters, and responses locally.  
-- Attach your own **OAuth 2.0 access token** in the `Authorization: Bearer <TOKEN>` header.  
+- Attach your own **OAuth 2.0 access token** in the `Authorisation: Bearer <TOKEN>` header.  
 - Run live calls against the API or your mock server.
 
 > 🔐 Remember: production requests require a valid OAuth token.  
