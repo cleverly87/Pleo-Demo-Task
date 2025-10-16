@@ -36,7 +36,7 @@ You can explore Clarence’s API in two ways:
 | Section | Purpose |
 |----------|----------|
 | **Documentation (Start Here)** | Learn to authenticate, make your first request, and handle common errors. |
-| **Authentication** | Understand OAuth 2.0, access tokens, refresh tokens, and required headers. |
+| **Authentication** | Detiled information to understand OAuth 2.0, access tokens, refresh tokens, and required headers. |
 | **Endpoints** | See parameters, example requests, and responses for `sit`, `paw`, and `heel`. |
 | **Errors** | View consistent JSON error shapes and quick fixes for each. |
 
@@ -54,7 +54,10 @@ make complex things simple, make simple things delightful, and make sure the doc
 
 Get up and running with the Clarence API in three simple steps.
 
-    Please follow the main guide if this your first time using this service 
+<!-- theme: info -->
+
+> #### New Users
+> Please follow the main guide if this your first time using this service [HERE](003-documentation.md)
 
 ### Download the OpenAPI spec
 
