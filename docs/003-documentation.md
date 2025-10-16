@@ -5,7 +5,8 @@ This page is your guided setup: authenticate, call an endpoint, and handle error
 
 ## The flow at a glance
 
-graph TB
+```
+flowchart TB
   %% Authentication subgraph
   subgraph AUTH[Authentication]
     A[Start] --> B[Get client_id and client_secret]
@@ -39,7 +40,7 @@ graph TB
   O --> I
   N -->|"No"| P[Fix request or retry after backoff]
   P --> I
-
+```
 
 
 <!-- theme: info -->
