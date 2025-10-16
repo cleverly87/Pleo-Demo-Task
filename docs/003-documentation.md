@@ -7,13 +7,13 @@ This page is your guided setup: authenticate, call an endpoint, and handle error
 
 ## Authentication Flow
 graph TB
-    A[Start] --> B[Get client_id and client_secret]
-    B --> C[Redirect user to /authorize with scope clarence.actions]
-    C --> D[User consents]
-    D --> E[Receive authorization code at redirect_uri]
-    E --> F[Exchange code for tokens at /token]
-    F --> G[Store access_token and refresh_token securely]
-    G --> H[Authenticated: ready to call API]
+    A[Start]-->B[Get client_id and client_secret]
+    B-->C[Redirect user to /authorize with scope clarence.actions]
+    C-->D[User consents]
+    D-->E[Receive authorization code at redirect_uri]
+    E-->F[Exchange code for tokens at /token]
+    F-->G[Store access_token and refresh_token securely]
+    G-->H[Authenticated: ready to call API]
 
 ## Use token to call available endpoints
 graph TB
