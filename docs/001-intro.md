@@ -35,10 +35,10 @@ You can explore Clarence’s API in two ways:
 
 | Section | Purpose |
 |----------|----------|
-| **Documentation (Start Here)** | Learn to authenticate, make your first request, and handle common errors. |
-| **Authentication** | Detiled information to understand OAuth 2.0, access tokens, refresh tokens, and required headers. |
-| **Endpoints** | See parameters, example requests, and responses for `sit`, `paw`, and `heel`. |
-| **Errors** | View consistent JSON error shapes and quick fixes for each. |
+| **Documentation (Start Here)** | A guided walkthrough for new users — from setup to first successful request, including authentication, example calls, and troubleshooting tips. |
+| **Authentication** | Detailed guide to OAuth 2.0 — learn how to obtain, use, and refresh access tokens securely. |
+| **API Reference** | The full technical breakdown: endpoints for `sit`, `paw`, and `heel`, request and response structures, examples, and error definitions. |
+
 
 ---
 
