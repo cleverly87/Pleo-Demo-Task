@@ -1,11 +1,11 @@
 
-# From zero to first successful call
+# Introduction 
 
 This page is your guided setup: authenticate, call an endpoint, and handle errors confidently.
 
 ## The flow at a glance
 
-```mermaid
+
 flowchart TD
     A[Start] --> B[Get client_id & client_secret]
     B --> C[Redirect user to /authorize with scopes]
@@ -23,4 +23,3 @@ flowchart TD
     N --> H
     J --> O[Done 🎉]
 
-```
