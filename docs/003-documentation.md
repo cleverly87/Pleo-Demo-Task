@@ -14,6 +14,7 @@ graph TB
     E-->F[Exchange code for tokens at /token]
     F-->G[Store access_token and refresh_token securely]
     G-->H[Authenticated: ready to call API]
+    end
 
 ## Use token to call available endpoints
 graph TB
