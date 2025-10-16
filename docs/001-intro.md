@@ -52,25 +52,25 @@ make complex things simple, make simple things delightful, and make sure the doc
 
 ## Quick Start (3 minutes)
 
-Get up and running with the Clarence API in three simple steps.
+Get up and running with the Clarence API in a couple of simple steps.
 
 <!-- theme: info -->
 
 > #### New Users
 > Please follow the main guide if this your first time using this service [HERE](003-documentation.md)
 
-> ⚙️ **Note:** This guide assumes basic familiarity with **OAuth 2.0** and access tokens.  
+> 🔐 **Note:** This guide assumes basic familiarity with **OAuth 2.0** and access tokens.  
 > If you’re new to OAuth, you can find a detailed walkthrough in the [Authentication guide](./002-auth.md).
 
 
 
-### Option 1 — Try it in your browser (mock server)
+### Option 1 : Try it in your browser (mock server)
 
 You can experiment with Clarence’s endpoints directly from this documentation.
 
 1. Open the [**API Documentation**](../openapi/openapi.yaml) page.  
-2. Select any endpoint under the 'Clarence Actions' tag (`/clarence/sit`, `/clarence/paw`, or `/clarence/heel`).  
-3. Click **Try It** and choose the **Mock Server** environment.  
+2. Select any endpoint under the **Clarence Actions** tag (`/clarence/sit`, `/clarence/paw`, or `/clarence/heel`).  
+3. Click **Send API Request** and choose the **Mock Server** environment.  
 4. Send a request to see realistic sample responses:
 5. Change the response by selecting **Mock Settings** and then the response type.
 
@@ -83,14 +83,14 @@ You can experiment with Clarence’s endpoints directly from this documentation.
 
 ---
 
-## Option 2 — Use it locally (Postman, Bruno, or similar)
+## Option 2 : Use it locally (Postman, Bruno, or similar)
 
 Prefer to work in your own API-testing setup?  
 
 Download the complete OpenAPI schema and import it into your tool of choice.
 
 1. Go to the **[API Documentation page](./openapi/openapi.yaml)**.  
-2. In the top-left corner, click **Export → Bundled References**.  
+2. In the top-right corner, click **Export → Bundled References**.  
 3. Your browser will download a single `.yaml` file containing the entire schema.  
 4. Import that file into **Postman**, **Insomnia**, or any OpenAPI-compatible client.  
 
