@@ -35,9 +35,9 @@ You can explore Clarence’s API in two ways:
 
 | Section | Purpose |
 |----------|----------|
-| **Documentation (Start Here)** | A guided walkthrough for new users — from setup to first successful request, including authentication, example calls, and troubleshooting tips. |
-| **Authentication** | Detailed guide to OAuth 2.0 — learn how to obtain, use, and refresh access tokens securely. |
-| **API Reference** | The full technical breakdown: endpoints for `sit`, `paw`, and `heel`, request and response structures, examples, and error definitions. |
+| **Documentation (Start Here)** | **A guided walkthrough for new users**: From setup to first successful request, including authentication, example calls, and troubleshooting tips. |
+| **Authentication** | **Detailed guide to OAuth 2.0**: Learn how to obtain, use, and refresh access tokens securely. |
+| **API Reference** | **The full technical breakdown**: Endpoints for `sit`, `paw`, and `heel`, request and response structures, examples, and error definitions. |
 
 
 ---
