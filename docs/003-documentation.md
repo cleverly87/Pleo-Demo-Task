@@ -9,6 +9,12 @@ This page is your guided setup:
 
 ## The flow at a glance
 
+The flow below shows the full process from authentication to calling an endpoint and handling responses.  
+
+The **first section** represents the [Authenticate Process](./002-auth.md).  
+Follow that guide carefully to obtain your `access_token` before moving to the API calls.
+
+
 ![Flowchart](../assets/images/Flowchart.png)
 
 
@@ -47,6 +53,8 @@ Once authenticated, you can talk to Clarence through three endpoints.
 
 ### POST /clarence/sit
 
+> 🔍 See [API Documentation](../openapi/openapi.yaml) for full schema and example payloads.
+
 **Description**
 Instructs Clarence to sit.
 This is an action command that changes his current state.
@@ -70,6 +78,8 @@ curl -X POST "https://external.pleo.io/v3/clarence/sit" \
 ```
 
 ### GET /clarence/paw ?side=left | right
+
+> 🔍 See [API Documentation](../openapi/openapi.yaml) for full schema and example payloads.
 
 **Description**
 Asks Clarence to offer a paw.
@@ -97,6 +107,8 @@ curl -X GET "https://external.pleo.io/v3/clarence/paw?side=left" \
 If no side is provided, the default is right.
 
 ### POST /clarence/heel
+
+> 🔍 See [API Documentation](../openapi/openapi.yaml) for full schema and example payloads.
 
 **Description**
 Tells Clarence to heel and walk beside you.
