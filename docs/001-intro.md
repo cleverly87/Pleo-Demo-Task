@@ -92,7 +92,7 @@ Download the complete OpenAPI schema and import it into your tool of choice.
 1. Go to the **[API Documentation page](./openapi/openapi.yaml)**.  
 2. In the top-right corner, click **Export → Bundled References**.  
 3. Your browser will download a single `.yaml` file containing the entire schema.  
-4. Import that file into **Postman**, **Insomnia**, or any OpenAPI-compatible client.  
+4. Import that file into **Postman**, **Bruno**, or any OpenAPI-compatible client.  
 
 Once imported, you can:
 - Inspect all endpoints, parameters, and responses locally.  
@@ -103,51 +103,3 @@ Once imported, you can:
 > See [Authentication](./002-auth.md) for detailed steps on obtaining and refreshing tokens.
 
 ---
-
-### Acquire an access token (OAuth 2.0 → Bearer)
-
-Use your `client_id` and `client_secret` to request a token from the authorization server.
-
-```bash
-curl -X POST "https://auth.example.com/token" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "grant_type=client_credentials" \
-  -d "client_id=<CLIENT_ID>" \
-  -d "client_secret=<CLIENT_SECRET>"
-```
-
-Save the `access_token` from the response.
-
-> You’ll use this token in the Authorization header for all API calls.
-
---- 
-
-### Make your first call
-
-Ask Clarence for a paw:
-
-```bash
-curl -X GET "https://external.pleo.io/v3/clarence/paw?side=left" \
-  -H "Authorization: Bearer <ACCESS_TOKEN>" \
-  -H "Content-Type: application/json"
-```
-
-200 OK
-
-```json
-{ 
-    "status": "ok", 
-    "action": "paw", 
-    "detail": "Clarence offers his left paw." 
-}
-```
-
-400 Bad Request
-
-```json
-{ 
-    "type": "clarence_asleep",
-    "message": "Clarence is asleep. Try again in a few minutes or check his nap schedule." }
-```
-
-> Next → see Help for the full OAuth flow (authorization, refresh, and error handling).
