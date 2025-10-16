@@ -1,16 +1,17 @@
 # Clarence Services API
 
-Meet Clarence, Pleos most popular colleague. This API lets you ask Clarence to **sit**, offer a **paw**, or **heel** with simple HTTP calls.
+Meet Clarence, Pleos most popular colleague. This API lets you ask Clarence to:
+-  **Sit**
+- Offer a **paw**
+- **heel** 
 
-<!-- theme: info -->
-> #### Important Essentials For Success
->
-> **Base URL:** `https://external.pleo.io/v3`\
-> **Version:** `v3`\
-> **Auth:** OAuth 2.0 → Bearer token (see **Authentication**)\
-> **Endpoints:** `/clarence/sit` (POST), `/clarence/paw` (GET), `/clarence/heel` (POST)
+With simple HTTP calls.
 
 ## What you will find here
+
+There is a choice of two paths to take:
+  1. If you are experienced with Pleo Services utilise the [Quick Start](#quick-start-3-minutes) 
+  2. If you are new to the servies, go to the [Documentation](./003-documentation.md) section for a detailed walkthrough on how to get started.
 
 ### 1. **Documenation (Start Here)** : A step-by-step guide that shows you how to:
    - Authenticate with **OAuth 2.0**

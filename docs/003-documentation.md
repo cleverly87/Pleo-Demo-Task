@@ -23,3 +23,11 @@ flowchart TD
     N --> H
     J --> O[Done 🎉]
 
+
+<!-- theme: info -->
+> #### Important Essentials For Success
+>
+> **Base URL:** `https://external.pleo.io/v3`\
+> **Version:** `v3`\
+> **Auth:** OAuth 2.0 → Bearer token (see **Authentication**)\
+> **Endpoints:** `/clarence/sit` (POST), `/clarence/paw` (GET), `/clarence/heel` (POST)
