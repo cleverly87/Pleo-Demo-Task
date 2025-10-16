@@ -1,26 +1,52 @@
 # Clarence Services API
 
-Meet Clarence, Pleos most popular colleague. This API lets you ask Clarence to:
--  **Sit**
-- Offer a **paw**
-- **heel** 
+Meet **Clarence** – Pleo’s most popular (and occasionally napping) colleague.  
+This playful API lets you interact with Clarence through simple HTTP requests — no tennis balls required.
 
-With simple HTTP calls.
+Use the API to:
+- Tell Clarence to **sit**
+- Ask him to offer a **paw** (choose left or right)
+- Command him to **heel** and walk obediently beside you
 
-## What you will find here
+When Clarence is asleep, your request will return a friendly error message so you can retry later — because even good boys need naps.
 
-There is a choice of two paths to take:
-  1. If you are experienced with Pleo Services utilise the [Quick Start](#quick-start-3-minutes) 
-  2. If you are new to the servies, go to the [Documentation](./003-documentation.md) section for a detailed walkthrough on how to get started.
+---
 
-### 1. **Documenation (Start Here)** : A step-by-step guide that shows you how to:
-   - Authenticate with **OAuth 2.0**
-   - Store and use your **Bearer token**
-   - Call your first endpoint successfully
-   - Handle **errors** (e.g., `clarence_asleep`)
-### 2. **Authentication** : header formats, token lifetime, basic security tips.
-### 3. **Endpoints** : parameters, examples, and responses for `sit`, `paw`, and `heel`.
-### 4. **Errors** : consistent JSON error shapes and how to fix them quickly.
+## About this API
+
+The Clarence Services API is a standard RESTful interface that shows how we approach developer-friendly design at Pleo: clear structure, meaningful responses, and documentation that’s as approachable as the people behind it.
+
+Every endpoint requires **OAuth 2.0** authentication with a Bearer token.  
+See [Authentication](#authentication-oauth-20) for full details on obtaining and refreshing tokens.
+
+---
+
+## What you’ll find here
+
+You can explore Clarence’s API in two ways:
+
+1. **Experienced with Pleo APIs?**  
+   Jump straight to the [Quick Start](#quick-start-3-minutes) and start calling endpoints in minutes.
+
+2. **New to Pleo or APIs in general?**  
+   Head to the [Documentation](./003-documentation.md) for a detailed, step-by-step walkthrough.
+
+### Sections overview
+
+| Section | Purpose |
+|----------|----------|
+| **Documentation (Start Here)** | Learn to authenticate, make your first request, and handle common errors. |
+| **Authentication** | Understand OAuth 2.0, access tokens, refresh tokens, and required headers. |
+| **Endpoints** | See parameters, example requests, and responses for `sit`, `paw`, and `heel`. |
+| **Errors** | View consistent JSON error shapes and quick fixes for each. |
+
+---
+
+## Why it matters
+
+Clarence’s API isn’t just fun — it reflects our philosophy at Pleo:  
+make complex things simple, make simple things delightful, and make sure the documentation feels like a friendly teammate guiding you through it.
+
 
 ---
 
