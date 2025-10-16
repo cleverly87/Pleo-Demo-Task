@@ -59,16 +59,48 @@ Get up and running with the Clarence API in three simple steps.
 > #### New Users
 > Please follow the main guide if this your first time using this service [HERE](003-documentation.md)
 
-### Download the OpenAPI spec
+> ⚙️ **Note:** This guide assumes basic familiarity with **OAuth 2.0** and access tokens.  
+> If you’re new to OAuth, you can find a detailed walkthrough in the [Authentication guide](./002-auth.md).
 
-Open this documentation in Stoplight and click the `Download` button at the top right of the API Reference panel.
-You can then:
 
-- Import it directly into Postman or Insomnia, or
 
-- Explore it locally in your favourite OpenAPI viewer.
+### Option 1 — Try it in your browser (mock server)
 
-💡 This gives you all endpoints, parameters, examples, and schema definitions for Clarence’s API.
+You can experiment with Clarence’s endpoints directly from this documentation.
+
+1. Open the [**API Documentation**](../openapi/openapi.yaml) page.  
+2. Select any endpoint under the 'Clarence Actions' tag (`/clarence/sit`, `/clarence/paw`, or `/clarence/heel`).  
+3. Click **Try It** and choose the **Mock Server** environment.  
+4. Send a request to see realistic sample responses:
+5. Change the response by selecting **Mock Settings** and then the response type.
+
+| Response | Meaning |
+|-----------|----------|
+| **200 OK** | Clarence successfully performs the action (sit, paw, heel). |
+| **4 xx** | The request is invalid or Clarence is asleep — you’ll receive a friendly JSON error explaining why. |
+
+> 💡 The mock server is perfect for exploring request and response formats without needing real credentials.
+
+---
+
+## Option 2 — Use it locally (Postman, Bruno, or similar)
+
+Prefer to work in your own API-testing setup?  
+
+Download the complete OpenAPI schema and import it into your tool of choice.
+
+1. Go to the **[API Documentation page](./openapi/openapi.yaml)**.  
+2. In the top-left corner, click **Export → Bundled References**.  
+3. Your browser will download a single `.yaml` file containing the entire schema.  
+4. Import that file into **Postman**, **Insomnia**, or any OpenAPI-compatible client.  
+
+Once imported, you can:
+- Inspect all endpoints, parameters, and responses locally.  
+- Attach your own **OAuth 2.0 access token** in the `Authorization: Bearer <TOKEN>` header.  
+- Run live calls against the API or your mock server.
+
+> 🔐 Remember: production requests require a valid OAuth token.  
+> See [Authentication](./002-auth.md) for detailed steps on obtaining and refreshing tokens.
 
 ---
 
