@@ -17,7 +17,7 @@ When Clarence is asleep, your request will return a friendly error message so yo
 The Clarence Services API is a standard RESTful interface that shows how we approach developer-friendly design at Pleo: clear structure, meaningful responses, and documentation that’s as approachable as the people behind it.
 
 Every endpoint requires **OAuth 2.0** authentication with a Bearer token.  
-See [Authentication](#authentication-oauth-20) for full details on obtaining and refreshing tokens.
+See [Authentication](#002-auth.md) for full details on obtaining and refreshing tokens.
 
 ---
 
